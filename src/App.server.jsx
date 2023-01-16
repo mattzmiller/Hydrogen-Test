@@ -15,6 +15,7 @@ import {
 } from '@shopify/hydrogen';
 import {HeaderFallback, EventsListener} from '~/components';
 import {NotFound} from '~/components/index.server';
+import ChatSpace from './components/ChatSpace/ChatSpace.client';
 
 function App({request}) {
   const pathname = new URL(request.normalizedUrl).pathname;
@@ -59,6 +60,7 @@ function App({request}) {
         {import.meta.env.DEV && <PerformanceMetricsDebug />}
         <ShopifyAnalytics cookieDomain="hydrogen.shop" />
       </ShopifyProvider>
+      <ChatSpace />
     </Suspense>
   );
 }
