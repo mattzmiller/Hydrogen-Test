@@ -15,6 +15,7 @@ import {
 } from '@shopify/hydrogen';
 import {HeaderFallback, EventsListener} from '~/components';
 import {NotFound} from '~/components/index.server';
+import {ChatArea} from 'chat-area-uni';
 import ChatSpace from './components/ChatSpace/ChatSpace.client';
 
 function App({request}) {

@@ -1,0 +1,11 @@
+.font {
+  color: purple;
+}
+
+.chat-space-icon {
+  width: '75px';
+  height: '75px';
+  position: 'fixed';
+  bottom: '3%';
+  right: '3%';
+}

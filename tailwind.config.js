@@ -21,17 +21,29 @@ module.exports = {
         shopPay: 'var(--color-shop-pay)',
       },
       screens: {
-        sm: '32em',
+        sm: '640px',
         md: '48em',
         lg: '64em',
         xl: '80em',
         '2xl': '96em',
-        'sm-max': {max: '48em'},
         'sm-only': {min: '32em', max: '48em'},
         'md-only': {min: '48em', max: '64em'},
         'lg-only': {min: '64em', max: '80em'},
         'xl-only': {min: '80em', max: '96em'},
         '2xl-only': {min: '96em'},
+        // => @media (max-width: 1535px) { ... }
+
+        'xl-max': {max: '1279px'},
+        // => @media (max-width: 1279px) { ... }
+
+        'lg-max': {max: '1023px'},
+        // => @media (max-width: 1023px) { ... }
+
+        'md-max': {max: '767px'},
+        // => @media (max-width: 767px) { ... }
+
+        'sm-max': {max: '639px'},
+        // => @media (max-width: 639px) { ... }
       },
       spacing: {
         nav: 'var(--height-nav)',
