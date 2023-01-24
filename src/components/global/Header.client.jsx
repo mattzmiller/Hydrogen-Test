@@ -64,7 +64,6 @@ export function Header({title, menu}) {
       ) : (
         <></>
       )}
-
       <ChatSpace
         chatInput={chatInput}
         setChatInput={setChatInput}

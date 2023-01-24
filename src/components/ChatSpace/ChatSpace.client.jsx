@@ -1,5 +1,5 @@
-import {useState} from 'react';
 import {Image} from '@shopify/hydrogen';
+import Message from '../Message/Message';
 
 import './styles.module.css';
 
@@ -9,9 +9,6 @@ export default function ChatSpace({
   showChat,
   setShowChat,
 }) {
-  // const [chatInput, setChatInput] = useState('');
-  // const [showChat, setShowChat] = useState(false);
-
   function inputHandler(e) {
     setChatInput(e.target.value);
   }
@@ -48,11 +45,12 @@ export default function ChatSpace({
       {showChat ? (
         <div
           style={chatSpace}
-          className="sm-max:w-[94vw] sm-max:h-[95vh] sm:w-66 sm:h-96 sm-max:z-30 z-50"
+          className="sm-max:w-[94vw] sm-max:h-[95vh] sm-max:z-30 sm:w-80 sm:h-96  z-50"
         >
           <div style={chatSpaceExitBtn}>
             <button onClick={closeChatSpaceHandler}>
               <svg
+                color="black"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -68,8 +66,32 @@ export default function ChatSpace({
               </svg>
             </button>
           </div>
+          <Message />
           <ul style={messageContainer}>
-            <li className="font">This is where the messages will appear</li>
+            <li style={listItems}>
+              <button
+                className="hover:bg-black hover:text-white"
+                style={welcomeButtons}
+              >
+                Track Order
+              </button>
+            </li>
+            <li style={listItems}>
+              <button
+                className="hover:bg-black hover:text-white"
+                style={welcomeButtons}
+              >
+                Reward Club
+              </button>
+            </li>
+            <li style={listItems}>
+              <button
+                className="hover:bg-black hover:text-white"
+                style={welcomeButtons}
+              >
+                Search for a product
+              </button>
+            </li>
           </ul>
           <form style={formStyling} action="" className="sm-max:w-[90vw]">
             <input
@@ -81,7 +103,7 @@ export default function ChatSpace({
             />
             <button
               style={sendBtn}
-              className="inline-flex items-center justify-center w-full px-4 py-1 text-base font-bold leading-6 text-white bg-indigo-600 border border-transparent rounded-full w-auto hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
+              className="inline-flex items-center justify-center w-full px-4 py-1 text-base font-bold leading-6 text-white border border-transparent rounded-full w-auto  focus:outline-none focus:ring-2 focus:ring-offset-2"
               type="submit"
             >
               Send
@@ -107,6 +129,7 @@ const inputField = {
   color: 'black',
   marginRight: '10px',
   height: '32px',
+  border: '2px solid black',
 };
 
 const chatSpace = {
@@ -114,7 +137,7 @@ const chatSpace = {
   // height: '400px',
   border: '2x solid grey',
   borderRadius: '16px',
-  backgroundColor: '#A5D0EA',
+  backgroundColor: 'white',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'start',
@@ -122,6 +145,7 @@ const chatSpace = {
   position: 'fixed',
   bottom: '3%',
   right: '3%',
+  color: 'black',
 };
 
 const formStyling = {
@@ -138,9 +162,24 @@ const chatSpaceExitBtn = {
 };
 
 const messageContainer = {
-  margin: '10px 15px',
+  margin: '0 auto',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+};
+
+const listItems = {
+  margin: '0 auto',
 };
 
 const sendBtn = {
   marginRight: '5px',
+  backgroundColor: 'black',
+};
+
+const welcomeButtons = {
+  border: '1.5px solid black',
+  borderRadius: '24px',
+  padding: '7px 20px',
+  marginTop: '20px',
 };
