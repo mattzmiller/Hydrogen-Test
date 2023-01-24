@@ -1,5 +1,6 @@
 import {Link, useUrl, useCart} from '@shopify/hydrogen';
 import {useWindowScroll} from 'react-use';
+import {useState} from 'react';
 
 import {
   Heading,
@@ -13,11 +14,15 @@ import {
 import {CartDrawer} from './CartDrawer.client';
 import {MenuDrawer} from './MenuDrawer.client';
 import {useDrawer} from './Drawer.client';
+import ChatSpace from '../ChatSpace/ChatSpace.client';
 
 /**
  * A client component that specifies the content of the header on the website
  */
 export function Header({title, menu}) {
+  const [chatInput, setChatInput] = useState('');
+  const [showChat, setShowChat] = useState(false);
+
   const {pathname} = useUrl();
 
   const localeMatch = /^\/([a-z]{2})(\/|$)/i.exec(pathname);
@@ -48,12 +53,23 @@ export function Header({title, menu}) {
         menu={menu}
         openCart={openCart}
       />
-      <MobileHeader
-        countryCode={countryCode}
-        isHome={isHome}
-        title={title}
-        openCart={openCart}
-        openMenu={openMenu}
+      {!showChat ? (
+        <MobileHeader
+          countryCode={countryCode}
+          isHome={isHome}
+          title={title}
+          openCart={openCart}
+          openMenu={openMenu}
+        />
+      ) : (
+        <></>
+      )}
+
+      <ChatSpace
+        chatInput={chatInput}
+        setChatInput={setChatInput}
+        showChat={showChat}
+        setShowChat={setShowChat}
       />
     </>
   );

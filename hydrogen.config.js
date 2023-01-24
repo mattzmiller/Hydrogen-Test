@@ -6,7 +6,8 @@ export default defineConfig({
     defaultLanguageCode: 'EN',
     storeDomain:
       // @ts-ignore
-      Oxygen?.env?.PUBLIC_STORE_DOMAIN || 'test-store-hydrogen-2023.myshopify.com',
+      Oxygen?.env?.PUBLIC_STORE_DOMAIN ||
+      'test-store-hydrogen-2023.myshopify.com',
     storefrontToken:
       // @ts-ignore
       Oxygen?.env?.PUBLIC_STOREFRONT_API_TOKEN ||

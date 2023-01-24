@@ -3,19 +3,24 @@ import {Image} from '@shopify/hydrogen';
 
 import './styles.module.css';
 
-export default function ChatSpace() {
-  const [chatInput, setChatInput] = useState('');
-  const [showChat, setShowChat] = useState(false);
+export default function ChatSpace({
+  chatInput,
+  setChatInput,
+  showChat,
+  setShowChat,
+}) {
+  // const [chatInput, setChatInput] = useState('');
+  // const [showChat, setShowChat] = useState(false);
 
   function inputHandler(e) {
     setChatInput(e.target.value);
   }
 
-  function chatIconClickHandler(e) {
+  function chatIconClickHandler() {
     setShowChat(true);
   }
 
-  function closeChatSpaceHandler(e) {
+  function closeChatSpaceHandler() {
     setShowChat(false);
   }
   // track customer order - submit email and order number
@@ -27,7 +32,7 @@ export default function ChatSpace() {
       {showChat ? (
         <></>
       ) : (
-        <div style={chatSpaceIcon}>
+        <div style={chatSpaceIcon} className="z-50">
           <button onClick={chatIconClickHandler}>
             <Image
               className="animate-[bounce_2.7s_ease-in-out_infinite]"
@@ -43,7 +48,7 @@ export default function ChatSpace() {
       {showChat ? (
         <div
           style={chatSpace}
-          className="sm-max:w-[94vw] sm-max:h-[95vh] sm:w-66 sm:h-96 sm-max:z-30"
+          className="sm-max:w-[94vw] sm-max:h-[95vh] sm:w-66 sm:h-96 sm-max:z-30 z-50"
         >
           <div style={chatSpaceExitBtn}>
             <button onClick={closeChatSpaceHandler}>
