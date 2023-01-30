@@ -1,5 +1,7 @@
 import {Image} from '@shopify/hydrogen';
-import Message from '../Message/Message';
+import InputField from './components/InputField';
+import WelcomeScreen from './screens/WelcomeScreen';
+import CloseChatSpaceButton from './components/CloseChatSpaceButton';
 
 import './styles.module.css';
 
@@ -47,68 +49,9 @@ export default function ChatSpace({
           style={chatSpace}
           className="sm-max:w-[94vw] sm-max:h-[95vh] sm-max:z-30 sm:w-80 sm:h-96  z-50"
         >
-          <div style={chatSpaceExitBtn}>
-            <button onClick={closeChatSpaceHandler}>
-              <svg
-                color="black"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-          </div>
-          <Message />
-          <ul style={messageContainer}>
-            <li style={listItems}>
-              <button
-                className="hover:bg-black hover:text-white"
-                style={welcomeButtons}
-              >
-                Track Order
-              </button>
-            </li>
-            <li style={listItems}>
-              <button
-                className="hover:bg-black hover:text-white"
-                style={welcomeButtons}
-              >
-                Reward Club
-              </button>
-            </li>
-            <li style={listItems}>
-              <button
-                className="hover:bg-black hover:text-white"
-                style={welcomeButtons}
-              >
-                Search for a product
-              </button>
-            </li>
-          </ul>
-          <form style={formStyling} action="" className="sm-max:w-[90vw]">
-            <input
-              className="border border-transparent rounded-full sm-max:w-full"
-              style={inputField}
-              onChange={inputHandler}
-              value={chatInput}
-              type="text"
-            />
-            <button
-              style={sendBtn}
-              className="inline-flex items-center justify-center w-full px-4 py-1 text-base font-bold leading-6 text-white border border-transparent rounded-full w-auto  focus:outline-none focus:ring-2 focus:ring-offset-2"
-              type="submit"
-            >
-              Send
-            </button>
-          </form>
+          <CloseChatSpaceButton closeChatSpaceHandler={closeChatSpaceHandler} />
+          <WelcomeScreen />
+          <InputField inputHandler={inputHandler} chatInput={chatInput} />
         </div>
       ) : (
         <></>
@@ -125,13 +68,6 @@ const chatSpaceIcon = {
   right: '3%',
 };
 
-const inputField = {
-  color: 'black',
-  marginRight: '10px',
-  height: '32px',
-  border: '2px solid black',
-};
-
 const chatSpace = {
   // width: '300px',
   // height: '400px',
@@ -141,45 +77,9 @@ const chatSpace = {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'start',
-  alignItems: 'end',
+  alignItems: 'center',
   position: 'fixed',
   bottom: '3%',
   right: '3%',
   color: 'black',
-};
-
-const formStyling = {
-  margin: '6px',
-  position: 'absolute',
-  bottom: '1%',
-  right: '0.5%',
-  display: 'flex',
-  justifyContent: 'space-between',
-};
-
-const chatSpaceExitBtn = {
-  margin: '10px 12.5px',
-};
-
-const messageContainer = {
-  margin: '0 auto',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-};
-
-const listItems = {
-  margin: '0 auto',
-};
-
-const sendBtn = {
-  marginRight: '5px',
-  backgroundColor: 'black',
-};
-
-const welcomeButtons = {
-  border: '1.5px solid black',
-  borderRadius: '24px',
-  padding: '7px 20px',
-  marginTop: '20px',
 };
