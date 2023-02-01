@@ -7,10 +7,9 @@ export default function Message({children}) {
 }
 
 const welcomeMessage = {
-  display: 'flex',
+  display: 'inline-block',
   width: '80%',
   height: '20px',
   margin: 'auto',
-  marginBottom: '30px',
-  justifyContent: 'center',
+  marginBottom: '10px',
 };

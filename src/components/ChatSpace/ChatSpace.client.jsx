@@ -14,6 +14,17 @@ export default function ChatSpace({
   setShowChat,
 }) {
   const [showRewardsClubScreen, setShowRewardsClubScreen] = useState(false);
+  const [showRewardsConfirmation, setShowRewardsConfirmation] = useState(false);
+
+  function sendHandler(e) {
+    e.preventDefault();
+    if (chatInput.length > 1) {
+      if (showRewardsClubScreen) {
+        console.log('you are signed up for rewards');
+        setShowRewardsConfirmation(true);
+      }
+    }
+  }
 
   function rewardsClubHandler() {
     setShowRewardsClubScreen(true);
@@ -63,10 +74,15 @@ export default function ChatSpace({
           ) : (
             <RewardsClubScreen
               setShowRewardsClubScreen={setShowRewardsClubScreen}
+              showRewardsConfirmation={showRewardsConfirmation}
             />
           )}
 
-          <InputField inputHandler={inputHandler} chatInput={chatInput} />
+          <InputField
+            sendHandler={sendHandler}
+            inputHandler={inputHandler}
+            chatInput={chatInput}
+          />
         </div>
       ) : (
         <></>
@@ -84,8 +100,6 @@ const chatSpaceIcon = {
 };
 
 const chatSpace = {
-  // width: '300px',
-  // height: '400px',
   border: '2x solid grey',
   borderRadius: '16px',
   backgroundColor: 'white',

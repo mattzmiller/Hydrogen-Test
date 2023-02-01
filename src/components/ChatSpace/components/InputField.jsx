@@ -1,6 +1,11 @@
-export default function InputField({inputHandler, chatInput}) {
+export default function InputField({inputHandler, chatInput, sendHandler}) {
   return (
-    <form style={formStyling} action="" className="sm-max:w-[90vw]">
+    <form
+      onSubmit={sendHandler}
+      style={formStyling}
+      action=""
+      className="sm-max:w-[90vw]"
+    >
       <input
         className="border border-transparent rounded-full sm-max:w-full"
         style={inputField}

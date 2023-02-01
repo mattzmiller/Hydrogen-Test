@@ -42,7 +42,7 @@ const welcomeScreenContainer = {
 };
 
 const messageContainer = {
-  margin: '0 auto',
+  margin: '30px auto',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
