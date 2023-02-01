@@ -1,6 +1,8 @@
+import {useState} from 'react';
 import {Image} from '@shopify/hydrogen';
 import InputField from './components/InputField';
 import WelcomeScreen from './screens/WelcomeScreen';
+import RewardsClubScreen from './screens/RewardsClubScreen';
 import CloseChatSpaceButton from './components/CloseChatSpaceButton';
 
 import './styles.module.css';
@@ -11,6 +13,12 @@ export default function ChatSpace({
   showChat,
   setShowChat,
 }) {
+  const [showRewardsClubScreen, setShowRewardsClubScreen] = useState(false);
+
+  function rewardsClubHandler() {
+    setShowRewardsClubScreen(true);
+  }
+
   function inputHandler(e) {
     setChatInput(e.target.value);
   }
@@ -50,7 +58,14 @@ export default function ChatSpace({
           className="sm-max:w-[94vw] sm-max:h-[95vh] sm-max:z-30 sm:w-80 sm:h-96  z-50"
         >
           <CloseChatSpaceButton closeChatSpaceHandler={closeChatSpaceHandler} />
-          <WelcomeScreen />
+          {!showRewardsClubScreen ? (
+            <WelcomeScreen rewardsClubHandler={rewardsClubHandler} />
+          ) : (
+            <RewardsClubScreen
+              setShowRewardsClubScreen={setShowRewardsClubScreen}
+            />
+          )}
+
           <InputField inputHandler={inputHandler} chatInput={chatInput} />
         </div>
       ) : (

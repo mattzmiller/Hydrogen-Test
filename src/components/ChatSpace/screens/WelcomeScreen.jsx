@@ -1,9 +1,9 @@
-import Message from '../../Message/Message';
+import Message from '../components/Message';
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({rewardsClubHandler}) {
   return (
     <div style={welcomeScreenContainer}>
-      <Message />
+      <Message>Hi there! How can I help you today?</Message>
       <ul style={messageContainer}>
         <li style={listItems}>
           <button
@@ -15,6 +15,7 @@ export default function WelcomeScreen() {
         </li>
         <li style={listItems}>
           <button
+            onClick={rewardsClubHandler}
             className="hover:bg-black hover:text-white"
             style={welcomeButtons}
           >
